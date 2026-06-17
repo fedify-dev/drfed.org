@@ -1,0 +1,30 @@
+[tools]
+node = "26"
+pnpm = "11"
+"aqua:dahlia/hongdown" = "0.4.3"
+
+[deps.pnpm]
+auto = true
+
+[hooks]
+postinstall = ["mise deps", "mise generate git-pre-commit --task check --write"]
+
+[tasks.fmt]
+description = "Format Markdown files"
+run = ["mise fmt", "hongdown --write"]
+
+[tasks.dev]
+description = "Start the development server"
+run = "pnpm run dev"
+
+[tasks.build]
+description = "Build the static site to dist/"
+run = "pnpm run build"
+
+[tasks.preview]
+description = "Preview the production build locally"
+run = "pnpm run preview"
+
+[tasks.check]
+description = "Check the project for errors"
+run = ["pnpm run check", "hongdown --check"]

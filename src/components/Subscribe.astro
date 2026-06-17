@@ -1,0 +1,141 @@
+---
+---
+
+<section class="subscribe section" id="subscribe">
+  <div class="container">
+    <div class="panel scroll-reveal">
+      <div class="panel-bg" aria-hidden="true"></div>
+      <span class="eyebrow">Updates</span>
+      <h2>Follow DrFed’s progress.</h2>
+      <p class="lede">
+        DrFed is still in development. Subscribe to hear about releases, early
+        access, and progress along the way.
+      </p>
+
+      <form
+        class="bd-form"
+        action="https://buttondown.com/api/emails/embed-subscribe/drfed"
+        method="post"
+        target="popupwindow"
+        onsubmit="window.open('https://buttondown.com/drfed', 'popupwindow')"
+      >
+        <label class="visually-hidden" for="bd-email">Email address</label>
+        <input
+          id="bd-email"
+          type="email"
+          name="email"
+          placeholder="you@example.com"
+          autocomplete="email"
+          required
+        />
+        <input type="hidden" name="embed" value="1" />
+        <button type="submit" class="btn btn-primary">Subscribe</button>
+      </form>
+
+      <p class="fineprint">
+        Occasional updates only; unsubscribe anytime. You can also
+        <a href="https://hackers.pub/@drfed" rel="me"
+          >follow <span class="handle">@drfed@hackers.pub</span></a
+        > on the fediverse.
+      </p>
+    </div>
+  </div>
+</section>
+
+<style>
+  .panel {
+    position: relative;
+    overflow: clip;
+    border: 1px solid var(--line-strong);
+    border-radius: var(--radius-lg);
+    padding: clamp(2.25rem, 1.5rem + 4vw, 4.5rem);
+    text-align: center;
+    box-shadow: var(--shadow-md);
+    background: var(--surface);
+  }
+
+  .panel-bg {
+    position: absolute;
+    inset: 0;
+    z-index: 0;
+    background: radial-gradient(
+      90% 110% at 50% -25%,
+      color-mix(in srgb, var(--accent-soft) 16%, transparent),
+      transparent 72%
+    );
+  }
+
+  .panel > :not(.panel-bg) {
+    position: relative;
+    z-index: 1;
+  }
+
+  .panel .eyebrow {
+    display: block;
+  }
+
+  .panel h2 {
+    margin-top: 0.9rem;
+  }
+
+  .panel .lede {
+    margin-top: 1rem;
+    margin-inline: auto;
+    max-width: 34rem;
+    color: var(--ink-soft);
+  }
+
+  .bd-form {
+    margin-top: 2.1rem;
+    display: flex;
+    gap: 0.7rem;
+    justify-content: center;
+    flex-wrap: wrap;
+  }
+
+  .bd-form input[type="email"] {
+    flex: 1 1 18rem;
+    max-width: 24rem;
+    padding: 0.85em 1.1em;
+    border-radius: 999px;
+    border: 1px solid var(--line-strong);
+    background: var(--bg);
+    color: var(--ink);
+    font-size: 1rem;
+    transition: border-color 0.18s ease, box-shadow 0.18s ease;
+  }
+
+  .bd-form input[type="email"]::placeholder {
+    color: var(--ink-faint);
+  }
+
+  .bd-form input[type="email"]:focus {
+    outline: none;
+    border-color: var(--accent);
+    box-shadow: 0 0 0 3px color-mix(in srgb, var(--accent) 28%, transparent);
+  }
+
+  .bd-form .btn {
+    flex: 0 0 auto;
+    padding-inline: 1.8em;
+  }
+
+  .fineprint {
+    margin-top: 1.4rem;
+    font-size: 0.88rem;
+    color: var(--ink-soft);
+  }
+
+  .handle {
+    font-family: var(--font-mono);
+    font-size: 0.92em;
+  }
+
+  @media (max-width: 32rem) {
+    .bd-form input[type="email"],
+    .bd-form .btn {
+      flex-basis: 100%;
+      max-width: none;
+    }
+  }
+</style>

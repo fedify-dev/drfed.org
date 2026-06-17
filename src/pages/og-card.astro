@@ -1,0 +1,128 @@
+---
+// Standalone composition rendered at 1200×630 and screenshotted into
+// /public/og-image.png during the build/verify step. Not linked from the site.
+import "@fontsource-variable/fraunces/full.css";
+import "@fontsource-variable/fraunces/full-italic.css";
+import "@fontsource-variable/hanken-grotesk/index.css";
+import "@fontsource/ibm-plex-mono/500.css";
+import Logo from "../components/Logo.astro";
+---
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="robots" content="noindex" />
+    <title>DrFed — social card</title>
+    <style is:global>
+      html,
+      body {
+        margin: 0;
+        padding: 0;
+      }
+
+      .card {
+        width: 1200px;
+        height: 630px;
+        box-sizing: border-box;
+        padding: 68px 88px;
+        display: grid;
+        grid-template-columns: 1.35fr 1fr;
+        align-items: center;
+        gap: 40px;
+        font-family: "Hanken Grotesk Variable", system-ui, sans-serif;
+        color: #26211f;
+        background:
+          radial-gradient(58% 68% at 86% 14%, #f7e3e7 0%, transparent 62%),
+          #fdfcfb;
+        position: relative;
+        overflow: hidden;
+      }
+
+      .card::after {
+        content: "";
+        position: absolute;
+        inset: auto 0 0 0;
+        height: 7px;
+        background: #e45b7d;
+      }
+
+      .eyebrow {
+        font-family: "IBM Plex Mono", monospace;
+        font-size: 21px;
+        font-weight: 500;
+        letter-spacing: 0.14em;
+        text-transform: uppercase;
+        color: #c23a5c;
+        margin: 0 0 18px;
+      }
+
+      h1 {
+        font-family: "Fraunces Variable", Georgia, serif;
+        font-weight: 480;
+        font-size: 73px;
+        line-height: 1.03;
+        letter-spacing: -0.02em;
+        margin: 0;
+      }
+
+      .sub {
+        font-size: 28px;
+        line-height: 1.45;
+        color: #6a615c;
+        margin: 24px 0 0;
+        max-width: 30ch;
+      }
+
+      .foot {
+        font-family: "IBM Plex Mono", monospace;
+        font-size: 22px;
+        color: #26211f;
+        margin: 34px 0 0;
+        display: flex;
+        gap: 22px;
+        align-items: center;
+      }
+
+      .foot .sep {
+        color: #dad4cf;
+      }
+
+      .foot .site {
+        font-weight: 500;
+      }
+
+      .foot .handle {
+        color: #c23a5c;
+      }
+
+      .art {
+        display: grid;
+        place-items: center;
+      }
+
+      .art img {
+        width: 360px;
+        height: 360px;
+        filter: drop-shadow(0 24px 50px rgba(196, 58, 92, 0.25));
+      }
+    </style>
+  </head>
+  <body>
+    <div class="card">
+      <div class="copy">
+        <p class="eyebrow">ActivityPub debugging platform</p>
+        <h1>Debugging tools for the fediverse.</h1>
+        <p class="sub">Developing and debugging ActivityPub—from the team behind Fedify.</p>
+        <p class="foot">
+          <span class="site">drfed.org</span>
+          <span class="sep">·</span>
+          <span class="handle">@drfed@hackers.pub</span>
+        </p>
+      </div>
+      <div class="art">
+        <Logo size={360} alt="DrFed" eager={true} />
+      </div>
+    </div>
+  </body>
+</html>

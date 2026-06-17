@@ -1,0 +1,149 @@
+---
+interface Phase {
+  label: string;
+  title: string;
+  body: string;
+  milestones: string;
+}
+
+const phases: Phase[] = [
+  {
+    label: "Phase 1",
+    title: "The core tools",
+    body: "Object lookup, activity monitor, failure diagnostics, WebFinger & NodeInfo testers, the JSON-LD toolkit, the HTTP signatures debugger, and the activity builder.",
+    milestones: "Milestones 1–7",
+  },
+  {
+    label: "Phase 2",
+    title: "Self-hosting & docs",
+    body: "Single-image Docker deployment with built-in tunnel support, hosted-service infrastructure, and documentation and tutorials.",
+    milestones: "Milestone 8",
+  },
+  {
+    label: "Phase 3",
+    title: "Interoperability validation",
+    body: "Testing against Mastodon, Misskey, Lemmy and more, edge-case handling, and integration of community feedback.",
+    milestones: "Milestone 9",
+  },
+  {
+    label: "Phase 4",
+    title: "Polish & public launch",
+    body: "Accessibility and UX refinements, performance optimization, and a finalized public release.",
+    milestones: "Milestone 10",
+  },
+];
+---
+
+<section class="roadmap section" id="roadmap">
+  <div class="container">
+    <div class="section-head scroll-reveal">
+      <span class="eyebrow">Roadmap</span>
+      <h2>Development milestones.</h2>
+      <p class="lede">
+        DrFed’s development is organized into ten milestones, funded by
+        <a href="https://nlnet.nl/project/DrFed/">NLnet’s NGI0 Commons Fund</a>.
+      </p>
+    </div>
+
+    <ol class="timeline">
+      {
+        phases.map((phase) => (
+          <li class="phase scroll-reveal">
+            <span class="node" aria-hidden="true" />
+            <div class="phase-body">
+              <div class="phase-meta">
+                <span class="label">{phase.label}</span>
+                <span class="milestones">{phase.milestones}</span>
+              </div>
+              <h3>{phase.title}</h3>
+              <p>{phase.body}</p>
+            </div>
+          </li>
+        ))
+      }
+    </ol>
+  </div>
+</section>
+
+<style>
+  .roadmap {
+    background: var(--bg-tint);
+    border-block: 1px solid var(--line);
+  }
+
+  .timeline {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    position: relative;
+  }
+
+  /* the vertical rail */
+  .timeline::before {
+    content: "";
+    position: absolute;
+    top: 0.6rem;
+    bottom: 0.6rem;
+    left: 0.45rem;
+    width: 2px;
+    background: linear-gradient(
+      to bottom,
+      var(--accent) 0%,
+      var(--line-strong) 100%
+    );
+  }
+
+  .phase {
+    position: relative;
+    padding-left: 2.4rem;
+    padding-bottom: clamp(1.75rem, 1rem + 1.5vw, 2.75rem);
+  }
+
+  .phase:last-child {
+    padding-bottom: 0;
+  }
+
+  .node {
+    position: absolute;
+    left: 0;
+    top: 0.45rem;
+    width: 0.95rem;
+    height: 0.95rem;
+    border-radius: 999px;
+    background: var(--surface);
+    border: 3px solid var(--accent);
+  }
+
+  .phase-meta {
+    display: flex;
+    align-items: baseline;
+    gap: 0.75rem;
+    flex-wrap: wrap;
+    margin-bottom: 0.4rem;
+  }
+
+  .label {
+    font-family: var(--font-mono);
+    font-size: 0.78rem;
+    font-weight: 500;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--accent-strong);
+  }
+
+  .milestones {
+    font-family: var(--font-mono);
+    font-size: 0.74rem;
+    color: var(--ink-faint);
+  }
+
+  .phase h3 {
+    margin-bottom: 0.45rem;
+  }
+
+  .phase p {
+    color: var(--ink-soft);
+    max-width: 44rem;
+    font-size: 0.98rem;
+  }
+</style>

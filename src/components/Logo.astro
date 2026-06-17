@@ -1,0 +1,23 @@
+---
+import logoUrl from "../assets/drfed.svg?url";
+
+interface Props {
+  size?: number;
+  class?: string;
+  alt?: string;
+  eager?: boolean;
+}
+
+const { size = 40, class: className, alt = "", eager = false } = Astro.props;
+---
+
+<img
+  src={logoUrl}
+  width={size}
+  height={size}
+  class={className}
+  alt={alt}
+  decoding="async"
+  loading={eager ? "eager" : "lazy"}
+  fetchpriority={eager ? "high" : "auto"}
+/>

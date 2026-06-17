@@ -1,0 +1,49 @@
+---
+---
+
+<section class="problem section">
+  <div class="container inner">
+    <p class="eyebrow scroll-reveal">The problem</p>
+    <blockquote class="quote scroll-reveal">
+      “Why doesn’t my server talk to Mastodon? Why did Lemmy reject this
+      activity?”
+    </blockquote>
+    <p class="answer scroll-reveal">
+      Answering questions like these usually means combining several tools, or
+      working from guesswork. When federation breaks, it is hard to tell whether
+      the cause is a signature, JSON-LD processing, a WebFinger lookup, or a
+      request that never arrived. DrFed brings these stages together in one
+      place, so you can see where interoperability breaks down.
+    </p>
+  </div>
+</section>
+
+<style>
+  .problem {
+    border-top: 1px solid var(--line);
+  }
+
+  .inner {
+    max-width: var(--container-narrow);
+  }
+
+  .quote {
+    font-family: var(--font-serif);
+    font-weight: 420;
+    font-size: clamp(1.7rem, 1.2rem + 2.3vw, 2.9rem);
+    line-height: 1.16;
+    letter-spacing: -0.02em;
+    margin-top: 1.4rem;
+    padding-left: clamp(1rem, 2vw, 1.6rem);
+    border-left: 3px solid var(--accent);
+    text-wrap: balance;
+  }
+
+  .answer {
+    margin-top: 2rem;
+    font-size: clamp(1.05rem, 1rem + 0.4vw, 1.25rem);
+    line-height: 1.65;
+    color: var(--ink-soft);
+    max-width: 40rem;
+  }
+</style>

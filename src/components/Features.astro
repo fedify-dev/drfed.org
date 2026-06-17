@@ -1,0 +1,208 @@
+---
+interface Tool {
+  slug: string;
+  title: string;
+  body: string;
+  tone?: "danger";
+}
+
+const tools: Tool[] = [
+  {
+    slug: "object-lookup",
+    title: "Object lookup",
+    body: "Fetch and inspect any ActivityPub object by URL or handle—in compact, expanded, or raw JSON-LD views, with linked objects dereferenced automatically.",
+  },
+  {
+    slug: "activity-monitor",
+    title: "Activity monitor",
+    body: "Receive and inspect incoming activities in real time, with a searchable, filterable history of what your inbox received.",
+  },
+  {
+    slug: "failure-diagnostics",
+    title: "Failure diagnostics",
+    body: "Identify which stage of federation failed—DNS, TLS, HTTP, signatures, or JSON-LD—with structured errors and suggested fixes.",
+    tone: "danger",
+  },
+  {
+    slug: "webfinger-nodeinfo",
+    title: "WebFinger & NodeInfo testers",
+    body: "Validate WebFinger and NodeInfo responses and check for common CORS and schema misconfigurations.",
+  },
+  {
+    slug: "jsonld-toolkit",
+    title: "JSON-LD toolkit",
+    body: "Compact, expand, and compare how different implementations read the same document, so you can find where terms are dropped.",
+  },
+  {
+    slug: "http-signatures",
+    title: "HTTP signatures debugger",
+    body: "Step through signature construction and verification stage by stage. Supports both draft-cavage and RFC 9421.",
+  },
+  {
+    slug: "activity-builder",
+    title: "Activity builder",
+    body: "Construct and send test activities to any inbox, with templates and validation for common activity types.",
+  },
+];
+---
+
+<section class="features section" id="tools">
+  <div class="container">
+    <div class="section-head scroll-reveal">
+      <span class="eyebrow">The toolkit</span>
+      <h2>Seven tools for ActivityPub development.</h2>
+      <p class="lede">
+        Each one focuses on a part of ActivityPub that commonly differs between
+        implementations.
+      </p>
+    </div>
+
+    <ol class="grid">
+      {
+        tools.map((tool, i) => (
+          <li class="card scroll-reveal" data-tone={tool.tone}>
+            <span class="num">{String(i + 1).padStart(2, "0")}</span>
+            <code class="slug">{tool.slug}</code>
+            <h3>{tool.title}</h3>
+            <p>{tool.body}</p>
+          </li>
+        ))
+      }
+      <li class="card card-more scroll-reveal">
+        <span class="num">+</span>
+        <code class="slug">planned</code>
+        <h3>More to come</h3>
+        <p>
+          Self-hosting, documentation, and interoperability testing against
+          Mastodon, Misskey, and Lemmy are planned for later milestones.
+        </p>
+        <a class="more-link" href="#roadmap"
+          >See the roadmap <span aria-hidden="true">→</span></a
+        >
+      </li>
+    </ol>
+  </div>
+</section>
+
+<style>
+  .grid {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 1px;
+    background: var(--line);
+    border: 1px solid var(--line);
+    border-radius: var(--radius-lg);
+    overflow: clip;
+  }
+
+  /* Pin column counts to 1 / 2 / 4 (never 3) so the eight cells always fill
+     the seamless grid with no empty tiles. */
+  @media (min-width: 38rem) {
+    .grid {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+
+  @media (min-width: 62rem) {
+    .grid {
+      grid-template-columns: repeat(4, 1fr);
+    }
+  }
+
+  .card {
+    position: relative;
+    background: var(--surface);
+    padding: clamp(1.5rem, 1.2rem + 1vw, 2.1rem);
+    display: flex;
+    flex-direction: column;
+    transition: background-color 0.2s ease;
+  }
+
+  .card:hover {
+    background: var(--surface-2);
+  }
+
+  .num {
+    font-family: var(--font-mono);
+    font-size: 0.78rem;
+    color: var(--ink-faint);
+    letter-spacing: 0.05em;
+  }
+
+  .slug {
+    font-family: var(--font-mono);
+    font-size: 0.78rem;
+    color: var(--accent-strong);
+    margin-top: 0.15rem;
+    margin-bottom: 1rem;
+  }
+
+  .card[data-tone="danger"] .slug {
+    color: var(--danger);
+  }
+
+  .card h3 {
+    margin-bottom: 0.6rem;
+  }
+
+  .card p {
+    color: var(--ink-soft);
+    font-size: 0.96rem;
+    line-height: 1.6;
+  }
+
+  /* The card's top accent line, revealed on hover */
+  .card::before {
+    content: "";
+    position: absolute;
+    inset: 0 0 auto 0;
+    height: 3px;
+    background: var(--accent);
+    transform: scaleX(0);
+    transform-origin: left;
+    transition: transform 0.25s ease;
+  }
+
+  .card[data-tone="danger"]::before {
+    background: var(--danger);
+  }
+
+  .card:hover::before {
+    transform: scaleX(1);
+  }
+
+  /* Closing "more" tile */
+  .card-more {
+    background: var(--surface-2);
+  }
+
+  .card-more:hover {
+    background: var(--accent-tint);
+  }
+
+  .more-link {
+    margin-top: auto;
+    padding-top: 1.1rem;
+    font-family: var(--font-mono);
+    font-size: 0.82rem;
+    font-weight: 500;
+    color: var(--accent-strong);
+    text-decoration: none;
+  }
+
+  .more-link span {
+    transition: transform 0.2s ease;
+    display: inline-block;
+  }
+
+  .more-link:hover {
+    text-decoration: none;
+  }
+
+  .more-link:hover span {
+    transform: translateX(0.25rem);
+  }
+</style>

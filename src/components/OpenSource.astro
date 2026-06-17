@@ -1,0 +1,88 @@
+---
+---
+
+<section class="oss section" id="open-source">
+  <div class="container">
+    <div class="section-head scroll-reveal">
+      <span class="eyebrow">Open source</span>
+      <h2>Hosted, or self-hosted.</h2>
+      <p class="lede">
+        DrFed is free and open source under the <a
+          href="https://www.gnu.org/licenses/agpl-3.0.html"
+          rel="license">AGPL-3.0</a>. Use the hosted service, or run it on your
+        own infrastructure.
+      </p>
+    </div>
+
+    <div class="cards">
+      <div class="oss-card scroll-reveal">
+        <h3>Hosted service</h3>
+        <p>
+          Nothing to install; paste a URL and start debugging. Useful for
+          investigating a production issue without setting up infrastructure
+          first.
+        </p>
+      </div>
+      <div class="oss-card scroll-reveal">
+        <h3>Self-hosted</h3>
+        <p>
+          A single Docker image with built-in tunnel support, an embedded
+          Postgres database (<a href="https://pglite.dev/">PGlite</a>) by
+          default, and pluggable storage backends, for private or persistent
+          deployments.
+        </p>
+      </div>
+    </div>
+
+    <p class="meta scroll-reveal">
+      <a href="https://www.gnu.org/licenses/agpl-3.0.html" rel="license"
+        ><code>AGPL-3.0</code></a
+      ><span aria-hidden="true">·</span> Built with
+      <a href="https://fedify.dev">Fedify</a>
+    </p>
+  </div>
+</section>
+
+<style>
+  .cards {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(18rem, 1fr));
+    gap: 1.25rem;
+  }
+
+  .oss-card {
+    background: var(--surface);
+    border: 1px solid var(--line);
+    border-radius: var(--radius);
+    padding: clamp(1.5rem, 1.2rem + 1vw, 2.1rem);
+    box-shadow: var(--shadow-sm);
+  }
+
+  .oss-card h3 {
+    margin-bottom: 0.6rem;
+  }
+
+  .oss-card p {
+    color: var(--ink-soft);
+    font-size: 0.98rem;
+  }
+
+  .meta {
+    margin-top: 1.75rem;
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    font-size: 0.92rem;
+    color: var(--ink-soft);
+  }
+
+  .meta code {
+    font-family: var(--font-mono);
+    font-size: 0.82rem;
+    padding: 0.25em 0.6em;
+    border-radius: 999px;
+    background: var(--surface-2);
+    border: 1px solid var(--line);
+    color: var(--accent-strong);
+  }
+</style>
